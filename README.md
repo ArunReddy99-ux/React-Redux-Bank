@@ -10,9 +10,6 @@ A React application demonstrating state management using Redux Toolkit.
 - [Technologies Used](#technologies-used)
 - [Key Concepts](#key-concepts)
 - [How the Application Works](#how-the-application-works)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Project Overview
 
