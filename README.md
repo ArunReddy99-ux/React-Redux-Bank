@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# Redux Intro
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React application demonstrating state management using Redux Toolkit.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Key Concepts](#key-concepts)
+- [How the Application Works](#how-the-application-works)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This app showcases Redux Toolkit for managing state in a React project, with features for account and customer management.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Account operations (deposit, withdraw, etc.)
+- Customer creation and management
+- State management with Redux Toolkit
+- Modular, scalable folder structure
+- Redux DevTools integration
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
+redux-intro/
+│
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── index.js
+│   ├── index.css
+│   ├── store.js
+│   └── features/
+│       ├── accounts/
+│       │   ├── AccountOperations.js
+│       │   ├── accountSlice.js
+│       │   └── BalanceDisplay.js
+│       └── customers/
+│           ├── CreateCustomer.js
+│           ├── Customer.js
+│           └── customerSlice.js
+├── package.json
+└── README.md
 
-### `npm run build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+- Redux Toolkit
+- React-Redux
+- JavaScript (ES6+)
+- Redux DevTools
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Key Concepts
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Redux Toolkit**: Simplifies Redux setup with `configureStore`, `createSlice`, and built-in middleware.
+- **Slices**: Each feature (accounts, customers) has its own slice for actions and reducers.
+- **Thunk Middleware**: Handles async logic.
+- **Component Structure**: Organized by feature for scalability.
 
-### `npm run eject`
+## How the Application Works
+## How the Application Works
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 1. Store Configuration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The Redux store is set up in `store.js` using **`configureStore`** from Redux Toolkit.
+- `configureStore` simplifies store setup by:
+  - Automatically combining all reducers (here: `account` and `customer`).
+  - Adding the **Thunk middleware** by default for handling asynchronous actions.
+  - Enabling **Redux DevTools** for easier debugging.
+- The store is exported and provided to the React app using the **`<Provider>`** component from `react-redux` (typically in `index.js`).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 2. State Slices
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Account Slice (`accountSlice.js`):**
+  - Created using **`createSlice`** from Redux Toolkit, which combines state, reducers, and actions in one place.
+  - Manages all state and logic related to account operations (e.g., balance, deposit, withdraw).
+  - Can include async thunks for side effects (like API calls).
+- **Customer Slice (`customerSlice.js`):**
+  - Also uses **`createSlice`** for customer-related state (e.g., customer details, creation).
+  - Follows the same pattern as the account slice, keeping logic modular and maintainable.
 
-## Learn More
+### 3. Feature Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Account Features:**
+  - `AccountOperations.js`: UI for performing account actions (deposit, withdraw, etc.), dispatches actions using the **`useDispatch`** hook.
+  - `BalanceDisplay.js`: Reads the current account balance from the Redux store using the **`useSelector`** hook and displays it.
+- **Customer Features:**
+  - `CreateCustomer.js`: Form for adding a new customer, dispatches actions to update the customer state.
+  - `Customer.js`: Displays customer information, reads from the Redux store using **`useSelector`**.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Data Flow
 
-### Code Splitting
+- Components use the **`useDispatch`** hook to send actions (e.g., deposit, create customer) to the Redux store.
+- The store processes these actions using the appropriate slice reducer, updating the state.
+- Components use the **`useSelector`** hook to read the latest state from the store and update the UI automatically.
+- If asynchronous logic is needed (e.g., API calls), Redux Toolkit’s built-in **thunk middleware** handles it seamlessly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 5. Scalability and Structure
 
-### Analyzing the Bundle Size
+- The codebase is organized by feature, making it easy to add new slices or components as the app grows.
+- Each feature folder contains its own slice, UI components, and related logic, promoting separation of concerns and maintainability.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 6. Developer Experience
 
-### Making a Progressive Web App
+- **Redux DevTools** are enabled by default, allowing you to inspect actions, state changes, and time-travel debug.
+- The use of Redux Toolkit’s functions (`configureStore`, `createSlice`) and hooks (`useDispatch`, `useSelector`) reduces boilerplate, enforces best practices, and makes state management more efficient and developer-friendly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
