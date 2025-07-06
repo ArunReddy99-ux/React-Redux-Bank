@@ -1,4 +1,4 @@
-# Redux Intro
+# React-Redux-Bank
 
 A React application demonstrating state management using Redux Toolkit.
 
