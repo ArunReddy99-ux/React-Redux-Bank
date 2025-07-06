@@ -24,26 +24,26 @@ This app showcases Redux Toolkit for managing state in a React project, with fea
 - Redux DevTools integration
 
 ## Project Structure
-redux-intro/
-│
-├── public/
-│   └── index.html
-├── src/
-│   ├── App.js
-│   ├── index.js
-│   ├── index.css
-│   ├── store.js
-│   └── features/
-│       ├── accounts/
-│       │   ├── AccountOperations.js
-│       │   ├── accountSlice.js
-│       │   └── BalanceDisplay.js
-│       └── customers/
-│           ├── CreateCustomer.js
-│           ├── Customer.js
-│           └── customerSlice.js
-├── package.json
-└── README.md
+redux-intro/  
+│  
+├── public/  
+│   └── index.html  
+├── src/  
+│   ├── App.js  
+│   ├── index.js  
+│   ├── index.css  
+│   ├── store.js  
+│   └── features/  
+│       ├── accounts/  
+│       │   ├── AccountOperations.js  
+│       │   ├── accountSlice.js  
+│       │   └── BalanceDisplay.js  
+│       └── customers/  
+│           ├── CreateCustomer.js  
+│           ├── Customer.js  
+│           └── customerSlice.js  
+├── package.json  
+└── README.md  
 ## Technologies Used
 
 - React
