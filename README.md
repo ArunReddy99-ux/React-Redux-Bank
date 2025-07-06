@@ -33,8 +33,8 @@ redux-intro/
 │   ├── index.js  
 │   ├── index.css  
 │   ├── store.js  
-│   └── features/
-│       ├── accounts/    
+│   └── features/     
+|       ├── accounts/    
 │       │   ├── AccountOperations.js    
 │       │   ├── accountSlice.js    
 │       │   └── BalanceDisplay.js    
