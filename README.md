@@ -33,16 +33,16 @@ redux-intro/
 │   ├── index.js  
 │   ├── index.css  
 │   ├── store.js  
-│   └── features/  
-│       ├── accounts/  
-│       │   ├── AccountOperations.js  
-│       │   ├── accountSlice.js  
-│       │   └── BalanceDisplay.js  
-│       └── customers/  
-│           ├── CreateCustomer.js  
-│           ├── Customer.js  
-│           └── customerSlice.js  
-├── package.json  
+│   └── features/
+│       ├── accounts/    
+│       │   ├── AccountOperations.js    
+│       │   ├── accountSlice.js    
+│       │   └── BalanceDisplay.js    
+│       └── customers/      
+│           ├── CreateCustomer.js    
+│           ├── Customer.js   
+│           └── customerSlice.js    
+├── package.json    
 └── README.md  
 ## Technologies Used
 
